@@ -308,3 +308,22 @@ header img{
    justify-content: center;
    align-items: center;
 }
+
+/* responsive */
+@media  (max-width: 1200px) {
+    .left-container{
+        display: none;
+    }
+    .right-container,.right-container-completed,
+    .right-container-personalInfo, .right-container-chessExp{
+        width: 100%;
+    }
+    .text-container, .left-input{
+        width: 80%;
+    }   
+    .select-inputs {
+        display: block;
+        width: 100%;
+    }
+  }
+
