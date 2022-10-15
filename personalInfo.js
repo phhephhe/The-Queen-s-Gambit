@@ -14,12 +14,14 @@ username.defaultValue = localStorage.getItem('username') ? localStorage.getItem(
 username.addEventListener('change', (el) => {   
     if(!el.target.value){    
         error.innerHTML = 'this field is required'
+       imgName.src = ''
+
         usernameValidation = false
     }else if(username.value.length < 2){
         error.innerHTML = 'username must be at least 2 characters'
         usernameValidation = false
     }else{
-       imgName.src = '../photos/doneIcon.png'
+       imgName.src = 'photos/doneIcon.png'
        error.innerHTML = ""
        localStorage.setItem('username', el.target.value.trim())
        usernameValidation = true
@@ -39,13 +41,15 @@ email.defaultValue = localStorage.getItem('email') ? localStorage.getItem('email
 email.addEventListener('change', (el) => {
     if(!el.target.value){
         errorEmail.innerHTML = 'this field is required'
+        imgEmail.src = ''
         emailValidation = false
     }else if(!el.target.value.match(compare)){
         errorEmail.innerHTML = 'example@redberry.ge'
+        imgEmail.src = ''
         emailValidation = false
     }else{
         errorEmail.innerHTML = ''
-        imgEmail.src = '../photos/doneIcon.png'
+        imgEmail.src = 'photos/doneIcon.png'
         localStorage.setItem('email', el.target.value.trim())
         emailValidation = true
     }
@@ -72,7 +76,7 @@ phone.addEventListener('change', (el) => {
        imgPhone.src = ''
     }else{
         errorPhone.innerHTML = ''  
-        imgPhone.src = '../photos/doneIcon.png'
+        imgPhone.src = 'photos/doneIcon.png'
         localStorage.setItem('phone', el.target.value.trim())
         phoneValidation = true
     }
@@ -93,7 +97,7 @@ date.addEventListener('change', (el) =>{
         imgDate.src = ''
         dateValidation = false
     }else{
-        imgDate.src = '../photos/doneIcon.png'
+        imgDate.src = 'photos/doneIcon.png'
         errorDate.innerHTML = ''
         localStorage.setItem('date', el.target.value.trim())
         dateValidation = true
