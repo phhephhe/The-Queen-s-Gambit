@@ -318,7 +318,7 @@ header img{
     .right-container-personalInfo, .right-container-chessExp{
         width: 100%;
     }
-    .text-container, .left-input{
+    .text-container, .left-input, .right-input{
         width: 80%;
     }   
     .select-inputs {
@@ -327,3 +327,6 @@ header img{
     }
   }
 
+.error {
+    border: 1px solid red;
+}

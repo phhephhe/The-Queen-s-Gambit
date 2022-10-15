@@ -53,45 +53,47 @@
                     <h1 class="title">Chess experience</h1>
                     <p class="small-text">This is basic informaton fields</p>
                 </div>
-                <div class="select-inputs">
-                    <div class="left-input">
-                        <select name="test" id="test" class="dropdown">
-                            <option selected disabled value="test">Level of knowledge</option>
-                            <option  value="test">Beginer</option>
-                            <option  value="test">Intermediate</option>
-                            <option  value="test">Professional</option>
-                        </select>
-                    </div>
-                    <div class="right-input">
-                        <div name="select" id="select" class="dropdown">
-                           <select name="grandMasters" id="grandMasters">
-                               <option value="grands">grandMasters</option>
-                           </select>
+                <form action="" id="form" enctype="multipart/form-data"> 
+                    <div class="select-inputs">
+                        <div class="left-input">
+                            <select name="level" id="level" class="dropdown">
+                                <option selected disabled value="">Level of knowledge</option>
+                                <option  value="beginner">Beginner</option>
+                                <option  value="intermediate">Intermediate</option>
+                                <option  value="professional">Professional</option>
+                            </select>
+                        </div>
+                        <div class="right-input">
+                            <select name="grandMasters" id="grandMasters" class="dropdown">
+                                <option selected disabled value="">Choose your character</option>
+                            </select>
                         </div>
                     </div>
-                </div>
-                <div class="radios">
-                    <label for="answer">Have you participated in the Redberry Championship? *</label>
-                    <div class="answers">
-                        <input type="radio" name="answer" id="yes" value="yes" checked>Yes
-                        <input type="radio" name="answer" id="no" value="no">No
+                    <div class="radios">
+                        <label for="answer">Have you participated in the Redberry Championship? *</label>
+                        <div class="answers">
+                            <input type="radio" name="answer" id="yes" value="true">
+                            <label for="yes">YES</label>
+                            <input type="radio" name="answer" id="no" value="false">
+                            <label for="no">NO</label>
+                        </div>
                     </div>
-                </div>
 
 
 
-                <div class="form-buttons">
-                    <a href="personalInfo.html"><button type="button" class="back-button">Back</button></a>
-                    <a href="completed.html">next page for test</a>
+                    <div class="form-buttons">
+                        <a href="personalInfo.html"><button type="button" class="back-button">Back</button></a>
+                        <a href="completed.html">next page for test</a>
 
-                    <button type="submit" class="next-button">Done</button>
-                </div>
+                        <button type="submit" class="next-button">Done</button>
+                    </div>
+                </form>    
             </div>
         </div>
     </div>
 
 
 
-    <!-- <script src="getData.js"></script> -->
+    <script src="chessExperience.js"></script>
 </body>
 </html>
