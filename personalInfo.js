@@ -110,7 +110,7 @@ const form = document.getElementById('form')
 form.addEventListener('submit', (event)=>{
     event.preventDefault()
     if(usernameValidation && emailValidation && phoneValidation && dateValidation){
-        window.location.href = "/chessExp.html";
+        window.location.href = "chessExp.html";
     }else{     
         alert('something went wrong')
     }
