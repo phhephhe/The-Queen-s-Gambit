@@ -90,27 +90,31 @@ form.addEventListener('submit', (event) => {
     }
     if(levelValid && selectValid && participatedValid){
         const formData = new FormData();
-        formData.append('name', localStorage.getItem('username'))
-        formData.append('email', localStorage.getItem('email'))
-        formData.append('phone', localStorage.getItem('phone'))
-        formData.append('date_of_birth', localStorage.getItem('date'))
-        formData.append('experience_level', localStorage.getItem('experience_level'))
-        formData.append('already_participated', localStorage.getItem('already_participated'))
-        formData.append('character_id', localStorage.getItem('character_id'))
-        
+        formData.append("name", localStorage.getItem('username'))
+        formData.append("email", localStorage.getItem('email'))
+        formData.append("phone", localStorage.getItem('phone'))
+        formData.append("date_of_birth", localStorage.getItem('date'))
+        formData.append("experience_level", localStorage.getItem('experience_level'))
+        formData.append("already_participated", localStorage.getItem('already_participated'))
+        formData.append("character_id", localStorage.getItem('character_id'))
         fetch('https://chess-tournament-api.devtest.ge/api/register',{
             method: 'POST',
-            body: formData
+            headers: {
+                Accept: "application/json"
+            },
+            body: JSON.stringify(formData)
         })
             .then(response => response.json())
             .then(data => {
                 if(data.errors){
-                    console.log(data)
+                    console.log(data.errors)
                 }else{
                     window.location.href = "completed.html";
                     console.log('Success');
                 }
             })
-    }
+    }    
 })
+
+
 
