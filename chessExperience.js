@@ -89,23 +89,37 @@ form.addEventListener('submit', (event) => {
         participatedValid = false
     }
     if(levelValid && selectValid && participatedValid){
-        const formData = new FormData();
-        formData.append("name", localStorage.getItem('username'))
-        formData.append("email", localStorage.getItem('email'))
-        formData.append("phone", localStorage.getItem('phone'))
-        formData.append("date_of_birth", localStorage.getItem('date'))
-        formData.append("experience_level", localStorage.getItem('experience_level'))
-        formData.append("already_participated", localStorage.getItem('already_participated'))
-        formData.append("character_id", localStorage.getItem('character_id'))
+        // const formData = new FormData();
+        // formData.append("name", localStorage.getItem('username'))
+        // formData.append("email", localStorage.getItem('email'))
+        // formData.append("phone", localStorage.getItem('phone'))
+        // formData.append("date_of_birth", localStorage.getItem('date'))
+        // formData.append("experience_level", localStorage.getItem('experience_level'))
+        // formData.append("already_participated", localStorage.getItem('already_participated'))
+        // formData.append("character_id", localStorage.getItem('character_id'))
+        // console.log(formData,' --- formDATA');
+        // console.log(formData.forEach(item => {
+        //     console.log(item,' --- FORMDATA item');
+        // }));
         fetch('https://chess-tournament-api.devtest.ge/api/register',{
             method: 'POST',
+            body: JSON.stringify({
+                "name": localStorage.getItem('username'),
+                "email": localStorage.getItem('email'),
+                "phone": localStorage.getItem('phone'),
+                "date_of_birth": localStorage.getItem('date'),
+                "already_participated": JSON.parse(localStorage.getItem('already_participated')),
+                "experience_level": localStorage.getItem('experience_level'),
+                "character_id": localStorage.getItem('character_id'),
+            }),
             headers: {
-                Accept: "application/json"
-            },
-            body: JSON.stringify(formData)
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'        
+              },
         })
-            .then(response => response.json())
+            .then(response => response)
             .then(data => {
+              console.log(data);
                 if(data.errors){
                     console.log(data.errors)
                 }else{
@@ -113,8 +127,17 @@ form.addEventListener('submit', (event) => {
                     console.log('Success');
                 }
             })
+            .catch(e => console.log(e))
     }    
 })
 
+
+// console.log('local storage get item NAME =',localStorage.getItem('username'));
+// console.log('local storage get item EMAIL =',localStorage.getItem('email'));
+// console.log('local storage get item PHONE =',localStorage.getItem('phone'));
+// console.log('local storage get item DATE_OF_BIRTH =',localStorage.getItem('date'));
+// console.log('local storage get item EXPERIENCE_LEVEL =',localStorage.getItem('experience_level'));
+console.log(typeof JSON.parse(localStorage.getItem('already_participated')));
+// console.log('local storage get item CHARACHTER ID =',localStorage.getItem('character_id'));
 
 

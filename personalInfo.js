@@ -10,7 +10,6 @@ let error = document.getElementById('name-error')
 error.style.color = 'red'
 
 username.defaultValue = localStorage.getItem('username') ? localStorage.getItem('username') : ''
-
 username.addEventListener('change', (el) => {   
     if(!el.target.value){    
         error.innerHTML = 'this field is required'
@@ -24,6 +23,7 @@ username.addEventListener('change', (el) => {
        imgName.src = 'photos/doneIcon.png'
        error.innerHTML = ""
        localStorage.setItem('username', el.target.value.trim())
+       console.log('local storage get item USERNAME =',localStorage.getItem('username'));
        usernameValidation = true
     }
 })
@@ -51,6 +51,7 @@ email.addEventListener('change', (el) => {
         errorEmail.innerHTML = ''
         imgEmail.src = 'photos/doneIcon.png'
         localStorage.setItem('email', el.target.value.trim())
+       console.log('local storage get item EMAIL =',localStorage.getItem('email'));
         emailValidation = true
     }
 })
@@ -78,6 +79,8 @@ phone.addEventListener('change', (el) => {
         errorPhone.innerHTML = ''  
         imgPhone.src = 'photos/doneIcon.png'
         localStorage.setItem('phone', el.target.value.trim())
+       console.log('local storage get item PHONE =',localStorage.getItem('phone'));
+
         phoneValidation = true
     }
 })
@@ -103,6 +106,8 @@ date.addEventListener('change', (el) =>{
         dateValidation = true
     }
 })
+console.log('local storage get item DATE =',localStorage.getItem('date'));
+
 
 // submit
 const form = document.getElementById('form')
