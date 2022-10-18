@@ -307,8 +307,18 @@ header img{
    display: flex;
    justify-content: center;
    align-items: center;
+   flex-direction: column;
 }
-
+.back-main-page{
+    margin-top: 30px;
+    background-color: rgb(18, 132, 238);
+    border: 3px solid orange;
+    border-radius: 12px;
+    color: white;
+    padding: 15px;
+    font-size: 18px;
+    font-family: 'Open Sans';
+}
 /* responsive */
 @media  (max-width: 1200px) {
     .left-container{
