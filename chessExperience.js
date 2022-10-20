@@ -89,18 +89,6 @@ form.addEventListener('submit', (event) => {
         participatedValid = false
     }
     if(levelValid && selectValid && participatedValid){
-        // const formData = new FormData();
-        // formData.append("name", localStorage.getItem('username'))
-        // formData.append("email", localStorage.getItem('email'))
-        // formData.append("phone", localStorage.getItem('phone'))
-        // formData.append("date_of_birth", localStorage.getItem('date'))
-        // formData.append("experience_level", localStorage.getItem('experience_level'))
-        // formData.append("already_participated", localStorage.getItem('already_participated'))
-        // formData.append("character_id", localStorage.getItem('character_id'))
-        // console.log(formData,' --- formDATA');
-        // console.log(formData.forEach(item => {
-        //     console.log(item,' --- FORMDATA item');
-        // }));
         fetch('https://chess-tournament-api.devtest.ge/api/register',{
             method: 'POST',
             body: JSON.stringify({
@@ -117,17 +105,13 @@ form.addEventListener('submit', (event) => {
                 'Content-Type': 'application/json'        
               },
         })
-            .then(response => response)
-            .then(data => {
-              console.log(data);
-                if(data.errors){
-                    console.log(data.errors)
+            .then(response => {
+                if(response.status === 201){
+                    location.href = 'completed.html'
                 }else{
-                    window.location.href = "completed.html";
-                    console.log('Success');
+                    console.log("ERROR!!!");
                 }
             })
-            .catch(e => console.log(e))
     }    
 })
 
@@ -137,7 +121,7 @@ form.addEventListener('submit', (event) => {
 // console.log('local storage get item PHONE =',localStorage.getItem('phone'));
 // console.log('local storage get item DATE_OF_BIRTH =',localStorage.getItem('date'));
 // console.log('local storage get item EXPERIENCE_LEVEL =',localStorage.getItem('experience_level'));
-console.log(typeof JSON.parse(localStorage.getItem('already_participated')));
+// console.log(typeof JSON.parse(localStorage.getItem('already_participated')));
 // console.log('local storage get item CHARACHTER ID =',localStorage.getItem('character_id'));
 
 

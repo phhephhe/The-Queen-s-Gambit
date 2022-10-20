@@ -319,6 +319,14 @@ header img{
     font-size: 18px;
     font-family: 'Open Sans';
 }
+#mess{
+    margin-bottom: 15px;
+    color: green;
+    font-size: 35px;
+    text-shadow: 2px 2px 2px rgba(72, 255, 0, 0.808);
+    font-family: 'Open Sans';
+
+}
 /* responsive */
 @media  (max-width: 1200px) {
     .left-container{
